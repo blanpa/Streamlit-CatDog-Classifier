@@ -6,7 +6,7 @@ import numpy as np
 st.header("Cat/Dog Classfier")
 st.write("This application can be used to classify images whether a cat or a dog is depicted on them.")
 
-data = st.file_uploader(label="Bild hochladen")
+data = st.file_uploader(label="Upload image")
 
 try:
     st.image(data)
