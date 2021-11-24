@@ -33,7 +33,7 @@ if st.button(label = "Klassifizieren"):
     from tensorflow.keras.models import load_model
     model = load_model("TransferlearningMNV2.h5")
     prediction = model.predict(data).astype(np.float32)
-    proba = model.predict_proba(data)
+    proba = model.predict(data)
 
     if prediction == 1:
         st.subheader(f"Es ist zu {proba[0][0]} eine Katze! 🐈")
