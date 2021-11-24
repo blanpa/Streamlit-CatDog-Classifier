@@ -3,18 +3,18 @@ import tensorflow as tf
 from PIL import Image
 import numpy as np
 
-st.header("CatDog Classfier")
-st.write("Mit dieser Anwendung können Bilder klassifiziert werden, ob darauf eine Katze oder ein Hund abgebildet wird.")
+st.header("Cat/Dog Classfier")
+st.write("This application can be used to classify images whether a cat or a dog is depicted on them.")
 
 data = st.file_uploader(label="Bild hochladen")
 
 try:
     st.image(data)
 except:
-    st.warning("Kein Bild hochgeladen!")
+    st.warning("No image uploaded!")
     st.stop()
 
-if st.button(label = "Klassifizieren"):
+if st.button(label = "Classify"):
     data = Image.open(data)
     image = data.resize((224, 224), Image.LANCZOS)
     #st.image(image)
@@ -36,6 +36,6 @@ if st.button(label = "Klassifizieren"):
     proba = model.predict(data)
 
     if prediction == 1:
-        st.subheader(f"Es ist zu {proba[0][0]} eine Katze! 🐈")
+        st.subheader(f"It is to {proba[0][0]} a cat! 🐈")
     else:
-        st.subheader(f"Es ist zu  {proba[0][0]} ein Hund! 🐕 ")
+        st.subheader(f"It is to {proba[0][0]} a dog! 🐕 ")
