@@ -40,10 +40,15 @@ if st.button(label = "Classify"):
 
     from tensorflow.keras.models import load_model
     model = load_model("TransferlearningMNV2.h5")
-    prediction = model.predict(data).astype(np.float32)
     proba = model.predict(data)
+    #st.write(predi)
+    prediction = np.round(proba)
+    #st.write(prediction)
+    #proba = model.predict(data)
+    
+    
 
     if prediction == 1:
         st.subheader(f"It is to {proba[0][0]} a cat! 🐈")
     else:
-        st.subheader(f"It is to {proba[0][0]} a dog! 🐕 ")
+        st.subheader(f"It is to {1-proba[0][0]} a dog! 🐕 ")
