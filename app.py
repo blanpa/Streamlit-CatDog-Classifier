@@ -8,7 +8,9 @@ st.write("This application can be used to classify images whether a cat or a dog
 
 selector = st.selectbox(
     label = "Picture or camera input?",
-    options = ["picture", "camera"])
+    options = ["picture", "camera"],
+    index = 1
+    )
 
 if selector == "picture":
     data = st.file_uploader(label="Upload image")
